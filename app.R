@@ -3,6 +3,12 @@ library(readr)
 library(dplyr)
 library(DT)
 
+downloadButton <- function(...) {
+  tag <- shiny::downloadButton(...)
+  tag$attribs$download <- NULL
+  tag
+}
+
 ui <- fluidPage(
   titlePanel("Conflicting Records Finder"),
   sidebarLayout(
